@@ -17,3 +17,7 @@ def convert_line_to_list(file_line):
 
 def vec3(a, b, c):
 	return a, b, c
+
+
+def dummy_shape():
+	return [[0, 0, 1], [0, 1, 1]*2000]

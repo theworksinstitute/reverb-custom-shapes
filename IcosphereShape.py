@@ -2,14 +2,19 @@ try:
 	import nap  # noqa
 except ModuleNotFoundError:
 	import shapes.utils as nap
-from shapes.utils import read_vertices_from_file
+from shapes import utils
 
 
 def getPositions(resolution, hollow): # noqa
-	icosphere_resolutions = [12, 42, 92, 162, 252, 362, 492, 642, 812, 1002, 1212, 1442, 1692, 1962, 2252]
-	vertices_count = next(i for i in icosphere_resolutions if resolution <= i)
+	# icosphere_resolutions = [12, 42, 92, 162, 252, 362, 492, 642, 812, 1002, 1212, 1442, 1692, 1962, 2252]
+	icosphere_resolutions = [12, 42, 92, 162, 252, 362, 492, 642, 812, 1002]
+
 	positions = []
-	vertices = read_vertices_from_file(f'shapes/icosphere/coordinates_{vertices_count}.txt')
+	try:
+		vertices_count = next(i for i in icosphere_resolutions if resolution <= i)
+		vertices = utils.read_vertices_from_file(f'shapes/icosphere/coordinates_{vertices_count}.txt')
+	except StopIteration:
+		vertices = utils.dummy_shape()
 
 	for v in vertices: # noqa
 		positions.append(nap.vec3(v[0], v[1], v[2]))

@@ -2,21 +2,17 @@ try:
 	import nap  # noqa
 except ModuleNotFoundError:
 	import shapes.utils as nap
-from shapes.utils import read_vertices_from_file
-
+from shapes import utils
 
 def getPositions(resolution, hollow): # noqa
-	vertices = read_vertices_from_file('shapes/RGS_1_faceted/coordinates.txt')
+	if resolution != 1:
+		vertices = utils.dummy_shape()
+	else:
+		vertices = utils.read_vertices_from_file('shapes/RGS_1_faceted/coordinates.txt')
 
-	positions = [] # noqa
-
+	positions = []  # noqa
 	for v in vertices:
 		positions.append(nap.vec3(v[0], v[1], v[2]))
-
-	if resolution != 1:
-		for i in range(1, 3):
-			for v in vertices:
-				positions.append(nap.vec3(v[0]+10*i, v[1], v[2]))
 	return positions
 
 
