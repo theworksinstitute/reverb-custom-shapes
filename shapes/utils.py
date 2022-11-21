@@ -20,4 +20,6 @@ def vec3(a, b, c):
 
 
 def dummy_shape():
-	return [[0, 0, 1], [0, 1, 1]*2000]
+	vertices = [[0, 1, 1]]*2000
+	vertices.insert(0, [0, 0, 1])
+	return vertices
