@@ -7,7 +7,7 @@ from shapes import utils
 
 def getPositions(resolution, hollow): # noqa
 	# icosphere_resolutions = [12, 42, 92, 162, 252, 362, 492, 642, 812, 1002, 1212, 1442, 1692, 1962, 2252]
-	icosphere_resolutions = [12, 42, 92, 162, 252, 362, 492, 642, 812, 1002]
+	icosphere_resolutions = [12, 42, 92, 162, 252, 362, 492]
 
 	positions = []
 	try:
