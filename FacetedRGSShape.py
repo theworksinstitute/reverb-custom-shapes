@@ -12,7 +12,7 @@ def getPositions(resolution, hollow): # noqa
 
 	positions = []  # noqa
 	for v in vertices:
-		positions.append(nap.vec3(v[0], v[1], v[2]))
+		positions.append(nap.vec3(v[0]/2, v[2]/2, v[1]/2))
 	return positions
 
 
